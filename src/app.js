@@ -1,7 +1,3 @@
-import "bootstrap";
-import "./style.css";
-
-
 const choises = ["rock", "paper", "scissors", "lizard", "spock"]
 const rules = {
   rock: ['scissors', "lizard"],
@@ -10,20 +6,17 @@ const rules = {
   lizard: ["spock", "paper"],
   spock: ["scissors", "rock"]
 }
-let computerChoise = choises[Math.floor(Math.random() * choises.length)];
-const userSelection = prompt(" ");
+function play() {
+  let userSelection = choises[Math.floor(Math.random() * choises.length)];
+  let computerChoise = choises[Math.floor(Math.random() * choises.length)];
 
-if (computerChoise === userSelection) {
-  //console.log("Computer choise = " + computerChoise);
- //console.log("User choise = " + userSelection);
-  console.log("Draw")
+  if (computerChoise === userSelection) {
+    console.log("Draw")
+  }
+  else if (rules[userSelection].includes(computerChoise)) {
+    console.log("You Win");
+  } else {
+    console.log("You Lose");
+  }
 }
-else if (rules[userSelection].includes(computerChoise)) {
-  //console.log("Computer choise = " + computerChoise);
-  //console.log("User choise = " + userSelection);
-  console.log("Result = You Win");
-} else {
-  //console.log("Computer choise = " + computerChoise);
- // console.log("User choise = " + userSelection);
-  console.log("Result = You Lose");
-}
+play();
